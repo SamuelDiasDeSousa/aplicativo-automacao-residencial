@@ -1,0 +1,92 @@
+<ion-view id="home" title='Minhas Lâmpadas' class="home" hide-back-button="true" hide-nav-bar="true">
+	<ion-content class="padding" has-header="false">
+
+		<h2 style="color:#fff">Minhas lâmpadas</h2>
+
+		<div class="row">
+
+			<div class="col">
+				<div class="luz" ng-click="toggleLampada(0)">
+					<img ng-if="lampadas[0] == 'off'" src="img/light-off.png" alt="">
+					<img ng-if="lampadas[0] == 'on'" src="img/light-on.png" alt="">
+					<p>Sala</p>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="luz" ng-click="toggleLampada(2)">
+					<img ng-if="lampadas[2] == 'off'" src="img/light-off.png" alt="">
+					<img ng-if="lampadas[2] == 'on'" src="img/light-on.png" alt="">
+					<p>Quarto</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col">
+				<div class="luz" ng-click="toggleLampada(1)">
+					<img ng-if="lampadas[1] == 'off'" src="img/light-off.png" alt="">
+					<img ng-if="lampadas[1] == 'on'" src="img/light-on.png" alt="">
+					<p>Cozinha</p>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="luz" ng-click="toggleLampada(3)">
+					<img ng-if="lampadas[3] == 'off'" src="img/light-off.png" alt="">
+					<img ng-if="lampadas[3] == 'on'" src="img/light-on.png" alt="">
+					<p>Banheiro</p>
+				</div>
+			</div>
+
+		</div>
+
+		<h3 style="color:#fff">Cenas</h3>
+
+		<div class="row">
+
+			<div class="col">
+				<div class="luz" ng-click="toggleModoFesta(1000)">
+					<img ng-if="!modo_festa" src="img/light-off.png" alt="">
+					<img ng-if="modo_festa" src="img/light-on.png" alt="">
+					<p>Modo Festa</p>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="luz" ng-click="toggleModoViagem(5000)">
+					<img ng-if="!modo_viagem" src="img/light-off.png" alt="">
+					<img ng-if="modo_viagem" src="img/light-on.png" alt="">
+					<p>Modo Viagem</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col">
+				<div class="luz" ng-click="ligaTodas()">
+					<img ng-if="!liga_todas" src="img/light-off.png" alt="">
+					<img ng-if="liga_todas" src="img/light-on.png" alt="">
+					<p>Ligar Todas</p>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="luz" ng-click="desligaTodas()">
+					<img src="img/light-off.png" alt="">\
+					<p>Desligar Todas</p>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</ion-content>
+</ion-view>

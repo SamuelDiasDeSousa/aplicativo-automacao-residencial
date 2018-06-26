@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic','lampadas'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,3 +22,63 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+.config(function($stateProvider, $httpProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  // Default post encoding
+	$httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+
+  // Align title
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.scrolling.jsScrolling(true);
+
+	// // Transform post data
+	// $httpProvider.defaults.transformRequest = function(data){
+	// 	var str = [];
+	// 	for(var p in data){
+	// 		str.push(encodeURIComponent(p) + "=" + encodeURIComponent(data[p]));
+	// 	}
+	// 	str = str.join("&");
+	// 	return str;
+	// }
+
+  $ionicConfigProvider.backButton.text('Voltar');
+	$ionicConfigProvider.backButton.previousTitleText(false);
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.tabs.position('bottom');
+  $ionicConfigProvider.views.maxCache(0);
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+
+  $stateProvider
+
+  // Menu
+  .state('app', {
+    url: "/app",
+    abstract: true,
+    templateUrl: "templates/tabs.html",
+  })
+
+  // Main page
+  .state('app.home', {
+    url: "/home",
+    views: {
+      home: {
+        templateUrl: "templates/home.html",
+        controller: 'lampadas'
+      }
+    }
+  })
+
+  .state('app.profile', {
+    url: "/profile",
+    views: {
+      profile: {
+        templateUrl: "templates/profile.html",
+        // controller: 'menu'
+      }
+    }
+  })
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/app/home');
+});
